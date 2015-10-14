@@ -155,7 +155,7 @@ class ProcessManagerTask extends Shell
             $this->log('Got OS signal "' . static::$_signals[$signo] .'"', 'warning');
 
             $event = new Event('CLI.signal', compact('signo'));
-            $this->getEventManager()->dispatch($event);
+            $this->eventManager()->dispatch($event);
         };
 
         $this->signal('SIGHUP', $callback);
